@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label for="dateOfPage"></label>
+    <input 
+        id="pageDate" 
+        type="date" 
+        class="form-control"
+        [(ngModel)] ="pageDate"
+        (ngModelChange)="getPage($event)">
+</div>
