@@ -1,1 +1,6 @@
-<app-page-edit></app-page-edit>
+<div *ngIf="editMode">
+  <app-page-edit></app-page-edit>
+</div>
+<div *ngIf="searchMode">
+    <app-page-list></app-page-list>
+</div>

@@ -41,7 +41,7 @@ public class DailyDiaryEndpoint {
 
         // @ToDo Read content from {date}.txt for example  2018-01-31.txt
         // @ToDo First line will be title of the page
-        String title = "Title of the page";
+        String title = "Title of the page for date "+ date;
 
         // @ToDo read remaining content of the file
         String content = "this will be the remaining content of the file";
@@ -55,12 +55,17 @@ public class DailyDiaryEndpoint {
 
     @RequestMapping(value="pages",  method = RequestMethod.GET)
     public List<PageDetail> getPageList() {
+
+        System.out.println("in page list");
+
         List<PageDetail> pageList = new ArrayList<>();
 
         //@ToDo read the directory where all pages are stored. Extract title and date information to populate pageList
 
         pageList.add(new PageDetail("This will be first line of each file", new Date())); // Date will be parsed from filename.
+        pageList.add(new PageDetail("This will be second line of each file", new Date())); // Date will be parsed from filename.
 
+        System.out.println(pageList);
         return pageList;
     }
 

@@ -4,18 +4,22 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="form-group">
-                        <label for="pageTitle">Page Title</label>
-                        <input type="text" class="form-control" id="pageTitle" placeholder="Title">
+                        <label for="pageTitle"></label>
+                        <input type="text" 
+                        class="form-control" 
+                        id="pageTitle" 
+                        placeholder="Title"
+                        [(ngModel)]="title">
                     </div>
                 </div>
                 
                 <div class="col-md-3">
-                  <p>2018-06-03</p>
+                  <p>{{ date }}</p>
                 </div>
             </div>
             <div class="mb5"></div>
             <div class="row">
-              <div class="col-md-12 text-editor" contenteditable="true"></div>
+              <div class="col-md-12 text-editor" contenteditable="true">{{content}}</div>
             </div>
             <div class="mb5"></div>
             <div class="row">

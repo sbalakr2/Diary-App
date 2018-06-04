@@ -1,28 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { PageDetail } from '../pageDetail.model';
+import { pageService } from '../pages.service';
 
-import { Page } from '../page.model';
 
 @Component({
   selector: 'app-page-list',
   templateUrl: './page-list.component.html',
-  styleUrls: ['./page-list.component.css']
+  styleUrls: ['./page-list.component.css'],
+  providers: [pageService]
 })
 export class PageListComponent implements OnInit {
-  pages: Page[] = [];
+  //pages: Page[] = [];
+  page_list;
 
-  constructor() { }
+  constructor(private _pageService : pageService) { }
 
   ngOnInit() {
 
-    this.pages.push(new Page('My diary 1', '2018-06-02', 'blah blah blah'));
-    this.pages.push(new Page('My diary 2', '2018-06-02', 'blah blah blah'));
-    console.log(this.pages);
+    this._pageService.getPages()
+      .subscribe(
+        (response: Response) => {
+          
+          console.log(response);
+          this.page_list = response;
+        }
+      )
   }
 
   getFormattedItem(page) {
     
-      // call a service 
-      return page.date + ": " + page.title;
+      return page.creationDate + ": " + page.title;
   }
 
 }
