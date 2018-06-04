@@ -14,6 +14,11 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { pageService } from './pages/pages.service';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+import { CalComponent } from './cal/cal.component';
+
 
 @NgModule({
   declarations: [
@@ -23,14 +28,16 @@ import { pageService } from './pages/pages.service';
     PagesComponent,
     PageListComponent,
     PageEditComponent,
-    CalendarComponent
+    CalendarComponent,
+    CalComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     FroalaEditorModule.forRoot(), 
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    BrowserAnimationsModule, CalendarModule.forRoot()
   ],
   providers: [pageService],
   bootstrap: [AppComponent]
